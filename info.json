@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "7898aa12886c2b7293df8f6ed86f4837e1f1ddf3",
+    "author": "steffilazerte <steffi@steffi.ca>",
+    "time": "2021-06-07 15:58:00",
+    "files": 2,
+    "merge": false,
+    "message": "Increment version number\n"
+  },
+  "remote": "https://github.com/ropensci/weathercan",
+  "pkg": "weathercan"
+}
