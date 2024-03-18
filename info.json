@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "f90bb103ee2b817ef314559aeb15ad863016e7f9",
+    "author": "Steffi LaZerte <sel@steffilazerte.ca>",
+    "time": "2023-09-20 22:05:19",
+    "files": 117,
+    "merge": true,
+    "message": "Merge pull request #140 from ropensci/dev\n\nv0.7.1"
+  },
+  "repo": "https://github.com/ropensci/weathercan",
+  "pkg": "weathercan"
+}
