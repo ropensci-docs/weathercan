@@ -1,0 +1,16 @@
+pandoc: 3.8.3
+pkgdown: 2.2.1
+pkgdown_sha: ~
+articles:
+  flags: flags.html
+  glossary_normals: glossary_normals.html
+  glossary: glossary.html
+  interpolate_data: interpolate_data.html
+  normals: normals.html
+  reproducibility: reproducibility.html
+  articles/tidyhydat: tidyhydat.html
+  weathercan: weathercan.html
+last_built: 2026-08-31T21:00Z
+urls:
+  reference: https://docs.ropensci.org/weathercan/reference
+  article: https://docs.ropensci.org/weathercan/articles

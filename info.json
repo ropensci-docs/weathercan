@@ -1,0 +1,13 @@
+{
+  "commit": {
+    "commit": "7869a45c4ca551c1160bed16d312e4361bd0e2d4",
+    "author": "dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+    "time": "2026-08-31T15:31:44Z",
+    "files": 1,
+    "merge": false,
+    "message": "Bump JamesIves/github-pages-deploy-action from 4.8.0 to 4.9.0 (#217)\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+  },
+  "repo": "https://github.com/ropensci/weathercan",
+  "pkg": "weathercan",
+  "time": "2026-08-31T21:00:32Z"
+}
