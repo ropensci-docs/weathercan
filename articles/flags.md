@@ -1,0 +1,119 @@
+# Flags and codes
+
+## What are flags/codes
+
+The data output of the
+[`weather_dl()`](https://docs.ropensci.org/weathercan/reference/weather_dl.md)
+function include corresponding `_flag` columns for each data column.
+These columns are used by ECCC to add notes regarding measurements.
+
+Similarly, the data output of the
+[`normals_dl()`](https://docs.ropensci.org/weathercan/reference/normals_dl.md)
+function include corresponding `_code` columns. These columns are used
+by ECCC to add notes regarding the amount of data used to calculate the
+normals.
+
+In the
+[`weather_dl()`](https://docs.ropensci.org/weathercan/reference/weather_dl.md)
+function if `format = TRUE` (the default), data corresponding to flags
+`M`, `NA`, and `[empty]` are all replaced with `NA` (if they are not
+already `NA`).
+
+### Flags - Weather Data
+
+The flags index can be accessed through the built in data frame: `flags`
+
+| code | meaning |
+|:---|:---|
+| A | Accumulated |
+| B | More than one occurrence and estimated |
+| C | Precipitation occurred, amount uncertain |
+| D | Data subject to further quality control procedure |
+| E | Estimated |
+| F | Accumulated and estimated |
+| L | Precipitation may or may not have occurred |
+| M | Missing |
+| N | Temperature missing but known to be \> 0 |
+| S | More than one occurrence |
+| T | Trace |
+| Y | Temperature missing but known to be \< 0 |
+| \[empty\] | Indicates an unobserved value |
+| ^ | The value displayed is based on incomplete data |
+| † | Data that is not subject to review by the National Climate Archives |
+| NA | Not Available |
+
+### Codes
+
+In the `normals_dl`() function, codes are associated with each variable:
+
+    ## As of weathercan v1.0.0 the default normals are 1991-2020. Note that these normals are in a
+    ## different format from previous years. See ?normals_dl for more details or use `normals_years =
+    ## '1981-2010'` to revert to the previous set of normals. This message is shown once per session
+    ## 
+    ## 
+    ## The most current normals available for download by weathercan are '1991-2020'
+    ## Using composite locations: BRANDON
+
+    ## # A tibble: 26 × 35
+    ##    period daily_average_c daily_average_c_code daily_maximum_c daily_maximum_c_code
+    ##    <chr>            <dbl> <chr>                          <dbl> <chr>               
+    ##  1 Jan              -16.7 A                              -11.4 A                   
+    ##  2 Feb              -14.1 A                               -8.5 A                   
+    ##  3 Mar               -7   A                               -1.6 A                   
+    ##  4 Apr                3.1 A                                9.6 A                   
+    ##  5 May               10.3 A                               17.4 A                   
+    ##  6 Jun               16.2 A                               22.6 A                   
+    ##  7 Jul               18.4 A                               24.9 A                   
+    ##  8 Aug               17.7 A                               25.1 A                   
+    ##  9 Sep               12.2 A                               19.5 A                   
+    ## 10 Oct                4   A                               10.1 A                   
+    ## # ℹ 16 more rows
+    ## # ℹ 30 more variables: daily_minimum_c <dbl>, daily_minimum_c_code <chr>,
+    ## #   maximum_daily_mean_c <dbl>, maximum_daily_mean_c_code <lgl>,
+    ## #   maximum_daily_mean_c_date <date>, maximum_daily_mean_c_date_code <lgl>,
+    ## #   minimum_daily_mean_c <dbl>, minimum_daily_mean_c_code <lgl>,
+    ## #   minimum_daily_mean_c_date <date>, minimum_daily_mean_c_date_code <lgl>,
+    ## #   minimum_daily_maximum_c <dbl>, minimum_daily_maximum_c_code <lgl>, …
+
+For example, here, the code indicates that these temperature variables
+meet the WMO ‘3 and 5 rule’ (no more than 3 consecutive and no more than
+5 total missing for either temperature or precipitation).
+
+Older climate normals are in a different format, but the codes are the
+same
+
+    ## # A tibble: 13 × 23
+    ##    period temp_daily_average temp_daily_average_code temp_daily_max temp_daily_max_code
+    ##    <fct>               <dbl> <chr>                            <dbl> <chr>              
+    ##  1 Jan                 -16.6 A                                -11.1 A                  
+    ##  2 Feb                 -13.6 A                                 -8.1 A                  
+    ##  3 Mar                  -6.2 A                                 -1   A                  
+    ##  4 Apr                   4   A                                 10.5 A                  
+    ##  5 May                  10.6 A                                 17.8 A                  
+    ##  6 Jun                  15.9 A                                 22.4 A                  
+    ##  7 Jul                  18.5 A                                 25.2 A                  
+    ##  8 Aug                  17.7 A                                 24.9 A                  
+    ##  9 Sep                  11.8 A                                 18.9 A                  
+    ## 10 Oct                   4.1 A                                 10.4 A                  
+    ## 11 Nov                  -5.6 A                                 -0.5 A                  
+    ## 12 Dec                 -14   A                                 -9   A                  
+    ## 13 Year                  2.2 A                                  8.4 A                  
+    ## # ℹ 18 more variables: temp_daily_min <dbl>, temp_daily_min_code <chr>,
+    ## #   rain_extreme_daily <dbl>, rain_extreme_daily_code <chr>, rain_extreme_daily_date <date>,
+    ## #   rain_extreme_daily_date_code <chr>, snow_extreme_daily <dbl>,
+    ## #   snow_extreme_daily_code <chr>, snow_extreme_daily_date <date>,
+    ## #   snow_extreme_daily_date_code <chr>, precip_extreme_daily <dbl>,
+    ## #   precip_extreme_daily_code <chr>, precip_extreme_daily_date <date>,
+    ## #   precip_extreme_daily_date_code <chr>, sun_extreme_daily <dbl>, …
+
+### Codes - Climate Normals
+
+The codes index for climate normals can be accessed through the built-in
+data frame: `codes`
+
+| code | meaning |
+|:---|:---|
+| A | WMO ‘3 and 5 rule’ (i.e. no more than 3 consecutive and no more than 5 total missing for either temperature or precipitation) |
+| B | At least 25 years |
+| C | At least 20 years |
+| D | At least 15 years |
